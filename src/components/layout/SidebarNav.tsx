@@ -5,14 +5,14 @@ import { usePathname } from "next/navigation";
 import {
   LayoutDashboard, BookOpen, GitBranch, Users, Globe, Search, Wand2,
   Eye, MessageSquare, BarChart2, Image, Award, Rocket, Settings,
-  ChevronDown, ChevronRight, Zap, PanelLeftClose, PanelLeft,
+  ChevronDown, ChevronRight, Zap, PanelLeftClose, PanelLeft, Timer,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const iconMap: Record<string, React.ElementType> = {
   LayoutDashboard, BookOpen, GitBranch, Users, Globe, Search, Wand2,
-  Eye, MessageSquare, BarChart2, Image, Award, Rocket, Settings,
+  Eye, MessageSquare, BarChart2, Image, Award, Rocket, Settings, Timer,
 };
 
 const navSections = [
@@ -38,7 +38,14 @@ const navSections = [
     items: [
       { label: "Beta Reader", href: "/beta-reader", icon: "Eye" },
       { label: "Critic", href: "/critic", icon: "MessageSquare" },
+      { label: "Peer Review", href: "/peer-review", icon: "Users" },
       { label: "Analytics", href: "/analytics", icon: "BarChart2" },
+    ],
+  },
+  {
+    section: "Productivity",
+    items: [
+      { label: "My Flow", href: "/my-flow", icon: "Timer" },
     ],
   },
   {

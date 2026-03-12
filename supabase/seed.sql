@@ -49,3 +49,25 @@ VALUES (
   'Fantasy',
   '00000000-0000-0000-0000-000000000001'
 ) ON CONFLICT (id) DO NOTHING;
+
+-- ── Extended Seed Data ────────────────────────────────────────────
+
+-- Sample AI Persona Configs
+INSERT INTO public.ai_persona_configs (id, org_id, name, base_type, description, system_prompt, demographics, preferences, is_public, created_by)
+SELECT
+  uuid_generate_v4(),
+  (SELECT id FROM public.organizations LIMIT 1),
+  'Fantasy Enthusiast',
+  'genre_enthusiast',
+  'An avid fantasy reader who has consumed thousands of hours of the genre',
+  'You are a passionate fantasy reader aged 25-35 who has read hundreds of fantasy novels. You notice tropes immediately, have strong opinions on magic systems, worldbuilding depth, and character agency. You get excited about subverted tropes and unique takes.',
+  '{"age_range": "25-35", "gender": "any", "reading_frequency": "daily", "books_per_year": 50}',
+  '{"favorite_genres": ["epic fantasy", "progression fantasy", "dark fantasy"], "dislikes": ["slow starts", "info dumps", "weak protagonists"], "emotional_style": "enthusiastic"}',
+  TRUE,
+  (SELECT id FROM public.users LIMIT 1)
+WHERE EXISTS (SELECT 1 FROM public.organizations) AND EXISTS (SELECT 1 FROM public.users);
+
+-- Sample Writing Goal
+INSERT INTO public.writing_goals (user_id, goal_type, target_value, current_value)
+SELECT id, 'daily_words', 1000, 347
+FROM public.users LIMIT 1;

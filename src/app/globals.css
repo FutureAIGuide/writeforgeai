@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --wf-bg: #0B0B0B;
+  --wf-panel: #121212;
+  --wf-panel-elevated: #181818;
+  --wf-border: #242424;
+  --wf-border-active: #FF6A00;
+  --wf-text: #FFFFFF;
+  --wf-text-muted: #9CA3AF;
+  --wf-accent: #FF6A00;
+  --wf-accent-soft: #FF8A2A;
+  --wf-glow: rgba(255,106,0,0.5);
+  --wf-success: #16A34A;
+  --wf-warning: #F59E0B;
+  --wf-danger: #EF4444;
+
+  --background: 0 0% 4%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 7%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 9%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 24 100% 50%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 14%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 14%;
+  --muted-foreground: 220 9% 68%;
+  --accent: 24 100% 50%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 14%;
+  --input: 0 0% 14%;
+  --ring: 24 100% 50%;
+  --radius: 0.5rem;
+}
+
+* {
+  border-color: var(--wf-border);
+}
+
+body {
+  background-color: var(--wf-bg);
+  color: var(--wf-text);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+.glow-border {
+  border: 1px solid var(--wf-border);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glow-border:hover {
+  border-color: var(--wf-accent);
+  box-shadow: 0 0 16px var(--wf-glow);
+}
+
+.glow-text {
+  color: var(--wf-accent);
+  text-shadow: 0 0 10px var(--wf-glow);
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: var(--wf-panel);
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--wf-border);
+  border-radius: 2px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: var(--wf-accent);
+}
